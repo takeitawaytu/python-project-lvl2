@@ -1,0 +1,11 @@
+#.gitignore
+
+#virtualenv
+/.venv/*
+/.idea/*
+
+#pycache folders
+__pycache__
+
+#dist folders
+dist
