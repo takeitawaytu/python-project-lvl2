@@ -1,4 +1,4 @@
-name: py_lint_n_test
+name: pylint
 
 on:
   push:
