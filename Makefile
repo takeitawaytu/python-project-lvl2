@@ -17,5 +17,5 @@ install-requirements:
 	python -m pip install --user --upgrade pip
 	python -m pip install poetry
 
-ttest:
-    poetry run pytest
+test:
+	poetry run pytest
