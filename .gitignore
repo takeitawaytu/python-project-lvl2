@@ -9,3 +9,9 @@ __pycache__
 
 #dist folders
 dist
+
+#pytest
+.pytest_cache
+
+#testfiles
+testfiles

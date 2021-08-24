@@ -45,9 +45,11 @@ def find_diff(dict1, dict2):
             result.update({key: {VALUE: new_value, STATUS: UNCHANGED}})
         else:
             if isinstance(old_value, dict) and isinstance(new_value, dict):
-                result.update({key: {VALUE: find_diff(old_value, new_value), STATUS: COMPLEX_VALUE}})
+                result.update({key: {VALUE: find_diff(old_value, new_value),
+                                     STATUS: COMPLEX_VALUE}})
             else:
-                result.update({key: {OLD_VALUE: old_value, NEW_VALUE: new_value, STATUS: CHANGED}})
+                result.update({key: {OLD_VALUE: old_value, NEW_VALUE: new_value,
+                                     STATUS: CHANGED}})
     return result
 
 
@@ -62,7 +64,13 @@ def main():
     parser = argparse.ArgumentParser(description='Generate diff')
     parser.add_argument('first_file')
     parser.add_argument('second_file')
-    parser.add_argument('-f', '--format', action='store', dest='format', metavar='FORMAT', default='jsonstr', help='set format of output', type=FORMAT.get)
+    parser.add_argument('-f', '--format',
+                        action='store',
+                        dest='format',
+                        metavar='FORMAT',
+                        default='jsonstr',
+                        help='set format of output',
+                        type=FORMAT.get)
     args = parser.parse_args()
     result = render_diffs(args.format, args.first_file, args.second_file)
     print(result)

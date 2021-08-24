@@ -17,8 +17,13 @@ def render(node, level=1):
         elif status == gendiff.REMOVED:
             result.append(removed + new_meta)
         elif status == gendiff.CHANGED:
-            result.append('{}{}: {}'.format(removed, key, val[gendiff.OLD_VALUE]))
-            result.append('{}{}: {}'.format(added, key, val[gendiff.NEW_VALUE]))
+            result.append('{}{}: {}'.format(removed,
+                                            key,
+                                            val[gendiff.OLD_VALUE]
+                                            ))
+            result.append('{}{}: {}'.format(added,
+                                            key,
+                                            val[gendiff.NEW_VALUE]))
         elif status == gendiff.UNCHANGED:
             result.append(sign + new_meta)
         elif status == gendiff.COMPLEX_VALUE:
@@ -27,4 +32,3 @@ def render(node, level=1):
         else:
             result.append(sign + new_meta)
     return '{' + '\n' + ('\n'.join(result)) + '   ' * (level - 1) + '\n' + '}'
-

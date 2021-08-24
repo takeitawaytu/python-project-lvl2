@@ -1,0 +1,18 @@
+{
+    Person: {
+        age: 15
+      - isAdmin: True
+      + isAdmin: False
+        name: Harry   
+}
+    group: {
+      - Skills: Engineer
+      + good: {
+            guys: ... twice      
+}
+      - nothing: {
+            else: matters      
+}   
+}
+  + test: 9999
+}

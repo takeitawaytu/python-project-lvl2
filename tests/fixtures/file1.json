@@ -1,0 +1,13 @@
+{
+    "Person": {
+        "isAdmin": true,
+        "name": "Harry",
+        "age": 15
+        },
+    "group": {
+        "Skills": "Engineer",
+        "nothing": {
+            "else": "matters"
+        }
+        }
+    }
