@@ -1,4 +1,7 @@
-from gendiff.renders import json_render
+from . import json_render, plain
+import json
 
-
-FORMAT = {'jsonstr': json_render.render}
+FORMAT = {
+    'json': json.dumps,
+    'jsontxt': json_render.render
+}

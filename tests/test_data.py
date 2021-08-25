@@ -1,4 +1,4 @@
-first_file = {
+first_file1 = {
     "Person": {
         "isAdmin": True,
         "name": "Harry",
@@ -12,7 +12,7 @@ first_file = {
         }
     }
 
-second_file = {
+second_file1 = {
     "Person": {
         "isAdmin": False,
         "name": "Harry",
@@ -26,7 +26,7 @@ second_file = {
     "test": 9999
     }
 
-raw_diff = {
+raw_diff1 = {
     'test': {
         'value': 9999,
         'status': 'added'
@@ -74,5 +74,18 @@ raw_diff = {
             }
         },
         'status': 'complex value'
+    }
+}
+
+first_file2 = {
+    "else": "matters"
+}
+
+second_file2 = {}
+
+raw_diff2 = {
+    'else': {
+        'value': "matters",
+        'status': 'removed'
     }
 }

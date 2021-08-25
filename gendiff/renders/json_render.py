@@ -1,4 +1,4 @@
-from gendiff.scripts import gendiff
+from gendiff import engine
 
 
 def render(node, level=1):
@@ -7,26 +7,26 @@ def render(node, level=1):
     added = '{}+ '.format(sign[:-2])
     removed = '{}- '.format(sign[:-2])
     for key, val in sorted(node.items()):
-        value = val.get(gendiff.VALUE)
-        status = val.get(gendiff.STATUS)
-        if isinstance(value, dict) and status != gendiff.COMPLEX_VALUE:
+        value = val.get(engine.VALUE)
+        status = val.get(engine.STATUS)
+        if isinstance(value, dict) and status != engine.COMPLEX_VALUE:
             value = render(value, level + 1)
         new_meta = '{}: {}'.format(key, value)
-        if status == gendiff.ADDED:
+        if status == engine.ADDED:
             result.append(added + new_meta)
-        elif status == gendiff.REMOVED:
+        elif status == engine.REMOVED:
             result.append(removed + new_meta)
-        elif status == gendiff.CHANGED:
+        elif status == engine.CHANGED:
             result.append('{}{}: {}'.format(removed,
                                             key,
-                                            val[gendiff.OLD_VALUE]
+                                            val[engine.OLD_VALUE]
                                             ))
             result.append('{}{}: {}'.format(added,
                                             key,
-                                            val[gendiff.NEW_VALUE]))
-        elif status == gendiff.UNCHANGED:
+                                            val[engine.NEW_VALUE]))
+        elif status == engine.UNCHANGED:
             result.append(sign + new_meta)
-        elif status == gendiff.COMPLEX_VALUE:
+        elif status == engine.COMPLEX_VALUE:
             value = render(value, level + 1)
             result.append('{}{}: {}'.format(sign, key, value))
         else:

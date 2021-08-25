@@ -1,0 +1,6 @@
+{
+    age: 15
+  + group: False
+  - isAdmin: True
+  + isAdmin: False
+}
