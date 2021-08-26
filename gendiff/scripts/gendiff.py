@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from gendiff.app import generate_diff
 from gendiff.renders import FORMAT
 import argparse
