@@ -1,8 +1,1 @@
-import json
-import yaml
-
-LOADERS = {
-    '.yml': yaml.load,
-    '.yaml': yaml.load,
-    '.json': json.load
-}
+from gendiff.app import generate_diff

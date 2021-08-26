@@ -1,5 +1,5 @@
 from gendiff.engine import find_diffs
-from gendiff import LOADERS
+from gendiff.loaders import LOADERS
 import os
 
 
