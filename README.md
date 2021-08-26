@@ -19,3 +19,7 @@
 #### YAML
 
 [![asciicast](https://asciinema.org/a/bN0JVpSc0JyT15lsNRkA5GYrY.svg)](https://asciinema.org/a/bN0JVpSc0JyT15lsNRkA5GYrY)
+
+#### Find diffs in tree
+
+[![asciicast](https://asciinema.org/a/jxoHTbjp8kdkJZZx1UqeQnDeh.svg)](https://asciinema.org/a/jxoHTbjp8kdkJZZx1UqeQnDeh)
