@@ -15,3 +15,7 @@
 #### JSON
 
 [![asciicast](https://asciinema.org/a/O6Eqn8siw8W2B3VjaDO1HrLEE.svg)](https://asciinema.org/a/O6Eqn8siw8W2B3VjaDO1HrLEE)
+
+#### YAML
+
+[![asciicast](https://asciinema.org/a/bN0JVpSc0JyT15lsNRkA5GYrY.svg)](https://asciinema.org/a/bN0JVpSc0JyT15lsNRkA5GYrY)
