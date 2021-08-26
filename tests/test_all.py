@@ -2,7 +2,7 @@ from gendiff.engine import find_diffs
 from gendiff.app import generate_diff, read_file,\
     WRONG_FILE_FORMAT_ERROR, WRONG_OUTPUT_FORMAT_ERROR
 from gendiff.renders import json_render, plain
-from tests import test_data
+from tests import input_data
 import pytest
 import os
 
@@ -34,18 +34,18 @@ EXP_PLAIN = get_file_content(PLAIN_RES)
 
 class TestJSON:
     @pytest.mark.parametrize('data1,data2,exp_res',
-                             [(test_data.first_file1,
-                              test_data.second_file1,
-                              test_data.raw_diff1),
-                              (test_data.first_file2,
-                               test_data.second_file2,
-                               test_data.raw_diff2)])
+                             [(input_data.first_file1,
+                               input_data.second_file1,
+                               input_data.raw_diff1),
+                              (input_data.first_file2,
+                               input_data.second_file2,
+                               input_data.raw_diff2)])
     def test_find_diff(self, data1, data2, exp_res):
         diff = find_diffs(data1, data2)
         assert diff == exp_res
 
     def test_render_diffs(self):
-        assert json_render.render(test_data.raw_diff1) == EXP_JSON_RES
+        assert json_render.render(input_data.raw_diff1) == EXP_JSON_RES
 
     def test_render_diffs_tree(self):
         assert generate_diff(json_render.render, JSON1_TREE, JSON2_TREE) == EXP_JSON_RES_TREE

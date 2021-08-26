@@ -1,4 +1,4 @@
-from . import json_render, plain
+from gendiff.renders import json_render, plain
 import json
 
 FORMAT = {
