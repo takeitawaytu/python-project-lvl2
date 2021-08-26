@@ -1,4 +1,4 @@
-from gendiff.engine import find_diff
+from gendiff.engine import generate_diff
 from gendiff import LOADERS
 import os
 
@@ -25,5 +25,5 @@ def render_diffs(render, path1, path2):
     file2 = read_file(path2)
     if file1 == UNKNOWN_FORMAT or file2 == UNKNOWN_FORMAT:
         return WRONG_FILE_FORMAT_ERROR
-    diff = find_diff(file1, file2)
+    diff = generate_diff(file1, file2)
     return render(diff)

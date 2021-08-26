@@ -3,16 +3,16 @@
         age: 15
       - isAdmin: True
       + isAdmin: False
-        name: Harry   
-}
+        name: Harry
+   }
     group: {
       - Skills: Engineer
       + good: {
-            guys: ... twice      
-}
+            guys: ... twice
+      }
       - nothing: {
-            else: matters      
-}   
-}
+            else: matters
+      }
+   }
   + test: 9999
 }
