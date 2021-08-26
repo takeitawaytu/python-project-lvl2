@@ -1,8 +1,9 @@
 from gendiff.engine import find_diffs
 from gendiff.loaders import LOADERS
+from gendiff.renders import json_render
 import os
 
-
+DEFAULT_FORMAT = {'jsontxt': json_render}
 UNKNOWN_FORMAT = 'unknown'
 WRONG_OUTPUT_FORMAT_ERROR = "Wrong output format. Try these: " \
                             "'jsontxt', 'json', 'plain'"
@@ -18,12 +19,12 @@ def read_file(path):
     return UNKNOWN_FORMAT
 
 
-def generate_diff(render, path1, path2):
-    if render is None:
-        return WRONG_OUTPUT_FORMAT_ERROR
+def generate_diff(path1, path2, render=None):
     file1 = read_file(path1)
     file2 = read_file(path2)
     if file1 == UNKNOWN_FORMAT or file2 == UNKNOWN_FORMAT:
         return WRONG_FILE_FORMAT_ERROR
     diff = find_diffs(file1, file2)
+    if render is None:
+        return DEFAULT_FORMAT['jsontxt'].render(diff)
     return render(diff)

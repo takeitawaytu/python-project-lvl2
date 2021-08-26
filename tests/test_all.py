@@ -48,44 +48,48 @@ class TestJSON:
         assert json_render.render(input_data.raw_diff1) == EXP_JSON_RES
 
     def test_render_diffs_tree(self):
-        assert generate_diff(json_render.render, JSON1_TREE, JSON2_TREE) == EXP_JSON_RES_TREE
+        assert generate_diff(JSON1_TREE, JSON2_TREE,
+                             json_render.render) == EXP_JSON_RES_TREE
 
 
 class TestYaml:
     def test_yml_and_yaml(self):
-        assert generate_diff(json_render.render, YAML1, YAML2) == EXP_YAML_RES
+        assert generate_diff(YAML1, YAML2,
+                             json_render.render) == EXP_YAML_RES
 
     def test_yml_and_yaml_tree(self):
-        assert generate_diff(json_render.render, YAML1_TREE, YAML2_TREE) == EXP_YAML_RES_TREE
+        assert generate_diff(YAML1_TREE, YAML2_TREE,
+                             json_render.render) == EXP_YAML_RES_TREE
 
 
 class TestPlain:
     def test_plain_json(self):
-        assert generate_diff(plain.render, JSON1_TREE, JSON2_TREE) == EXP_PLAIN
+        assert generate_diff(JSON1_TREE, JSON2_TREE,
+                             plain.render) == EXP_PLAIN
 
     def test_plain_json(self):
-        assert generate_diff(plain.render, YAML1_TREE, YAML2_TREE) == EXP_PLAIN
+        assert generate_diff(YAML1_TREE, YAML2_TREE,
+                             plain.render) == EXP_PLAIN
 
 
 class TestPaths:
     def test_relpath(self):
-        assert generate_diff(json_render.render,
-                             JSON1, JSON2) == EXP_JSON_RES
+        assert generate_diff(JSON1, JSON2, json_render.render) == EXP_JSON_RES
 
     def test_abspath(self):
-        assert generate_diff(json_render.render,
-                             os.path.abspath(JSON1), JSON2) == EXP_JSON_RES
+        assert generate_diff(os.path.abspath(JSON1), JSON2,
+                             json_render.render,) == EXP_JSON_RES
 
     def test_abspath(self):
-        assert generate_diff(json_render.render,
-                             os.path.abspath(JSON1),
-                             os.path.abspath(JSON2)) == EXP_JSON_RES
+        assert generate_diff(os.path.abspath(JSON1),
+                             os.path.abspath(JSON2),
+                             json_render.render,) == EXP_JSON_RES
 
     def test_wrong_format(self):
-        assert generate_diff(json_render.render, JSON1, 'test.txt') \
-               == WRONG_FILE_FORMAT_ERROR
+        assert generate_diff(JSON1, 'test.txt',
+                             json_render.render) == WRONG_FILE_FORMAT_ERROR
 
 
 class TestFormat:
-    def test_wrong_format(self):
-        assert generate_diff(None, JSON1, JSON2) == WRONG_OUTPUT_FORMAT_ERROR
+    def test_generate_diff_only_path(self):
+        assert generate_diff(JSON1, JSON2) == EXP_JSON_RES
