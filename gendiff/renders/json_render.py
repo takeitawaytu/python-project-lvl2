@@ -33,4 +33,3 @@ def render(node, level=1):
             result.append(sign + new_meta)
     return '{' + '\n' + ('\n'.join(result)) + '\n' \
            + '   ' * (level - 1) + '}'
-

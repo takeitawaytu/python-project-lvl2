@@ -1,4 +1,4 @@
-from gendiff.app import render_diffs
+from gendiff.app import generate_diff
 from gendiff.renders import FORMAT
 import argparse
 
@@ -12,10 +12,10 @@ def main():
                         dest='format',
                         metavar='FORMAT',
                         default='jsontxt',
-                        help='set format of output',
+                        help='set format of output: "jsontxt", "plain"',
                         type=FORMAT.get)
     args = parser.parse_args()
-    result = render_diffs(args.format, args.first_file, args.second_file)
+    result = generate_diff(args.format, args.first_file, args.second_file)
     print(result)
 
 

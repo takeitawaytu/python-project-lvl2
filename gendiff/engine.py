@@ -22,7 +22,7 @@ def object_value(node):
     return result
 
 
-def generate_diff(dict1, dict2):
+def find_diffs(dict1, dict2):
     result = {}
     old_keys = dict1.keys()
     new_keys = dict2.keys()
@@ -37,7 +37,7 @@ def generate_diff(dict1, dict2):
             result.update({key: {VALUE: new_value, STATUS: UNCHANGED}})
         else:
             if isinstance(old_value, dict) and isinstance(new_value, dict):
-                result.update({key: {VALUE: generate_diff(old_value, new_value),
+                result.update({key: {VALUE: find_diffs(old_value, new_value),
                                      STATUS: COMPLEX_VALUE}})
             else:
                 result.update({key: {OLD_VALUE: old_value, NEW_VALUE: new_value,

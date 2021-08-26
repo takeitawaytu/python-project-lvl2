@@ -3,5 +3,6 @@ import json
 
 FORMAT = {
     'json': json.dumps,
-    'jsontxt': json_render.render
+    'jsontxt': json_render.render,
+    'plain': plain.render
 }
