@@ -12,7 +12,7 @@
 
 ### USAGE
 
-#### JSON
+#### JSONTXT
 
 [![asciicast](https://asciinema.org/a/O6Eqn8siw8W2B3VjaDO1HrLEE.svg)](https://asciinema.org/a/O6Eqn8siw8W2B3VjaDO1HrLEE)
 
@@ -27,3 +27,7 @@
 #### Plain output
 
 [![asciicast](https://asciinema.org/a/QOYqXSrvL1p8ahMNw1xPawvKF.svg)](https://asciinema.org/a/QOYqXSrvL1p8ahMNw1xPawvKF)
+
+#### JSON
+
+[![asciicast](https://asciinema.org/a/3pNd6EgYCJn8PpIV2EmigciA7.svg)](https://asciinema.org/a/3pNd6EgYCJn8PpIV2EmigciA7)
