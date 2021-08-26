@@ -23,3 +23,7 @@
 #### Find diffs in tree
 
 [![asciicast](https://asciinema.org/a/jxoHTbjp8kdkJZZx1UqeQnDeh.svg)](https://asciinema.org/a/jxoHTbjp8kdkJZZx1UqeQnDeh)
+
+#### Plain output
+
+[![asciicast](https://asciinema.org/a/QOYqXSrvL1p8ahMNw1xPawvKF.svg)](https://asciinema.org/a/QOYqXSrvL1p8ahMNw1xPawvKF)
