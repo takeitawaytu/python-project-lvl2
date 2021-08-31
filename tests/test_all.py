@@ -51,45 +51,46 @@ class TestJSON:
 
     def test_render_diffs_tree(self):
         assert generate_diff(JSON1_TREE, JSON2_TREE,
-                             json_render.render) == EXP_JSON_RES_TREE
+                             'stylish') == EXP_JSON_RES_TREE
 
 
 class TestYaml:
     def test_yml_and_yaml(self):
         assert generate_diff(YAML1, YAML2,
-                             json_render.render) == EXP_YAML_RES
+                             'stylish') == EXP_YAML_RES
 
     def test_yml_and_yaml_tree(self):
         assert generate_diff(YAML1_TREE, YAML2_TREE,
-                             json_render.render) == EXP_YAML_RES_TREE
+                             'stylish') == EXP_YAML_RES_TREE
+        assert generate_diff(YAML1_TREE, YAML2_TREE, 'stylish') == EXP_YAML_RES_TREE
 
 
 class TestPlain:
     def test_plain_json(self):
         assert generate_diff(JSON1_TREE, JSON2_TREE,
-                             plain.render) == EXP_JSON_PLAIN
+                             'plain') == EXP_JSON_PLAIN
 
-    def test_plain_json(self):
+    def test_plain_yaml(self):
         assert generate_diff(YAML1_TREE, YAML2_TREE,
-                             plain.render) == EXP_YAML_PLAIN
+                             'plain') == EXP_YAML_PLAIN
 
 
 class TestPaths:
     def test_relpath(self):
-        assert generate_diff(JSON1, JSON2, json_render.render) == EXP_JSON_RES
+        assert generate_diff(JSON1, JSON2, 'stylish') == EXP_JSON_RES
 
-    def test_abspath(self):
+    def test_abs_relpath(self):
         assert generate_diff(os.path.abspath(JSON1), JSON2,
-                             json_render.render,) == EXP_JSON_RES
+                             'stylish') == EXP_JSON_RES
 
     def test_abspath(self):
         assert generate_diff(os.path.abspath(JSON1),
                              os.path.abspath(JSON2),
-                             json_render.render,) == EXP_JSON_RES
+                             'stylish') == EXP_JSON_RES
 
     def test_wrong_format(self):
         assert generate_diff(JSON1, 'test.txt',
-                             json_render.render) == WRONG_FILE_FORMAT_ERROR
+                             'stylish') == WRONG_FILE_FORMAT_ERROR
 
 
 class TestFormat:

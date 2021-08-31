@@ -12,8 +12,7 @@ def main():
                         action='store',
                         dest='format',
                         metavar='FORMAT',
-                        default='jsontxt',
-                        help='set format of output: "jsontxt", "plain"',
+                        help='set format of output: "stylish", "plain"',
                         type=FORMAT.get)
     args = parser.parse_args()
     result = generate_diff(args.first_file, args.second_file, args.format)

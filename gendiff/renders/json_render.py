@@ -10,7 +10,6 @@ def get_lower(value):
         lowered_value = 'false'
     else:
         lowered_value = value
-    print(lowered_value)
     return lowered_value
 
 
