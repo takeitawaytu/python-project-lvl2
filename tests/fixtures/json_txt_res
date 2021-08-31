@@ -1,18 +1,18 @@
 {
     Person: {
         age: 15
-      - isAdmin: True
-      + isAdmin: False
+      - isAdmin: true
+      + isAdmin: false
         name: Harry
-   }
+    }
     group: {
       - Skills: Engineer
       + good: {
             guys: ... twice
-      }
+        }
       - nothing: {
             else: matters
-      }
-   }
+        }
+    }
   + test: 9999
 }

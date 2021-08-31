@@ -2,6 +2,7 @@ from gendiff.engine import find_diffs
 from gendiff.loaders import LOADERS
 from gendiff.renders import json_render
 import os
+import yaml
 
 DEFAULT_FORMAT = {'jsontxt': json_render}
 UNKNOWN_FORMAT = 'unknown'
@@ -14,6 +15,8 @@ WRONG_FILE_FORMAT_ERROR = "Wrong file format. Try these: " \
 def read_file(path):
     name, ext = os.path.splitext(path)
     loader = LOADERS.get(ext.lower())
+    if ext in ('.yml', '.yaml'):
+        return yaml.load(open(os.path.realpath(path)), Loader=yaml.BaseLoader)
     if loader is not None:
         return loader(open(os.path.realpath(path)))
     return UNKNOWN_FORMAT

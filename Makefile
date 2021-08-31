@@ -18,4 +18,4 @@ install-requirements:
 	python -m pip install poetry
 
 test:
-	poetry run pytest
+	poetry run pytest --cov=gendiff --cov-report xml tests/

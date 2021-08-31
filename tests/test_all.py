@@ -24,12 +24,14 @@ YAML_RES = 'tests/fixtures/yaml_res'
 YAML1_TREE = 'tests/fixtures/file1_tree.yaml'
 YAML2_TREE = 'tests/fixtures/file2_tree.yaml'
 YAML_RES_TREE = 'tests/fixtures/yaml_res_tree'
-PLAIN_RES = 'tests/fixtures/plain_res'
+JSON_PLAIN_RES = 'tests/fixtures/plain_res'
+YAML_PLAIN_RES = 'tests/fixtures/yaml_tree_res_plain'
 EXP_JSON_RES = get_file_content(JSONTXT_RES)
 EXP_YAML_RES = get_file_content(YAML_RES)
 EXP_JSON_RES_TREE = get_file_content(JSONTXT_RES_TREE)
 EXP_YAML_RES_TREE = get_file_content(YAML_RES_TREE)
-EXP_PLAIN = get_file_content(PLAIN_RES)
+EXP_JSON_PLAIN = get_file_content(JSON_PLAIN_RES)
+EXP_YAML_PLAIN = get_file_content(YAML_PLAIN_RES)
 
 
 class TestJSON:
@@ -65,11 +67,11 @@ class TestYaml:
 class TestPlain:
     def test_plain_json(self):
         assert generate_diff(JSON1_TREE, JSON2_TREE,
-                             plain.render) == EXP_PLAIN
+                             plain.render) == EXP_JSON_PLAIN
 
     def test_plain_json(self):
         assert generate_diff(YAML1_TREE, YAML2_TREE,
-                             plain.render) == EXP_PLAIN
+                             plain.render) == EXP_YAML_PLAIN
 
 
 class TestPaths:

@@ -35,11 +35,10 @@ def find_diffs(dict1, dict2):
         new_value = dict2[key]
         if old_value == new_value:
             result.update({key: {VALUE: new_value, STATUS: UNCHANGED}})
+        elif isinstance(old_value, dict) and isinstance(new_value, dict):
+            result.update({key: {VALUE: find_diffs(old_value, new_value),
+                                 STATUS: COMPLEX_VALUE}})
         else:
-            if isinstance(old_value, dict) and isinstance(new_value, dict):
-                result.update({key: {VALUE: find_diffs(old_value, new_value),
-                                     STATUS: COMPLEX_VALUE}})
-            else:
-                result.update({key: {OLD_VALUE: old_value, NEW_VALUE: new_value,
-                                     STATUS: CHANGED}})
+            result.update({key: {OLD_VALUE: old_value, NEW_VALUE: new_value,
+                                 STATUS: CHANGED}})
     return result
