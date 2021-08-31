@@ -4,12 +4,17 @@ from gendiff.renders.json_render \
 
 
 def make_converted(node):
-    if isinstance(node, dict):
-        return '[complex value]'
-    elif isinstance(node, str):
-        if node in ('null', 'true', 'false'):
+    try:
+        if type(node) is not bool:
+            node = int(node)
             return '{}'.format(node)
-        return '\'{}\''.format(node)
+    except Exception:
+        if isinstance(node, dict):
+            return '[complex value]'
+        elif isinstance(node, str):
+            if node in ('null', 'true', 'false'):
+                return '{}'.format(node)
+            return '\'{}\''.format(node)
     return get_lower(node)
 
 
