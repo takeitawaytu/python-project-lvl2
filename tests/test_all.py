@@ -1,7 +1,6 @@
 from gendiff.engine import find_diffs
-from gendiff.app import generate_diff, read_file,\
-    WRONG_FILE_FORMAT_ERROR, WRONG_OUTPUT_FORMAT_ERROR
-from gendiff.renders import json_render, plain
+from gendiff.app import generate_diff, WRONG_FILE_FORMAT_ERROR
+from gendiff.renders import json_render
 from tests import input_data
 import pytest
 import os
@@ -62,7 +61,8 @@ class TestYaml:
     def test_yml_and_yaml_tree(self):
         assert generate_diff(YAML1_TREE, YAML2_TREE,
                              'stylish') == EXP_YAML_RES_TREE
-        assert generate_diff(YAML1_TREE, YAML2_TREE, 'stylish') == EXP_YAML_RES_TREE
+        assert generate_diff(YAML1_TREE, YAML2_TREE,
+                             'stylish') == EXP_YAML_RES_TREE
 
 
 class TestPlain:

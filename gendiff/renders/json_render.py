@@ -25,7 +25,7 @@ def get_value(node):
     return None, get_lower(node)
 
 
-def render(node, level=1):
+def render(node, level=1):  # noqa: C901
     result = []
     sign = '    ' * level
     added = '{}+ '.format(sign[:-2])

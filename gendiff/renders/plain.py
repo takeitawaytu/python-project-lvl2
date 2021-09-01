@@ -3,18 +3,21 @@ from gendiff.renders.json_render \
     import get_lower, get_value
 
 
-def make_converted(node):
-    try:
-        if type(node) is not bool:
-            node = int(node)
-            return '{}'.format(node)
-    except Exception:
-        if isinstance(node, dict):
-            return '[complex value]'
-        elif isinstance(node, str):
-            if node in ('null', 'true', 'false'):
-                return '{}'.format(node)
+def get_if_int(node):
+    if type(node) is not bool:
+        try:
+            return '{}'.format(int(node))
+        except Exception:
             return '\'{}\''.format(node)
+
+
+def make_converted(node):
+    if isinstance(node, dict):
+        return '[complex value]'
+    elif isinstance(node, str):
+        if node in ('null', 'true', 'false'):
+            return '{}'.format(node)
+        return get_if_int(node)
     return get_lower(node)
 
 

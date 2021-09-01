@@ -3,28 +3,28 @@ first_file1 = {
         "isAdmin": True,
         "name": "Harry",
         "age": 15,
-        },
+    },
     "group": {
         "Skills": "Engineer",
         "nothing": {
             "else": "matters"
         }
-        }
     }
+}
 
 second_file1 = {
     "Person": {
         "isAdmin": False,
         "name": "Harry",
         "age": 15,
-        },
+    },
     "group": {
         "good": {
             "guys": "... twice"
         }
-        },
+    },
     "test": 9999
-    }
+}
 
 raw_diff1 = {
     'test': {
