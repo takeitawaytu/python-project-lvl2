@@ -1,5 +1,4 @@
 import argparse
-from gendiff.renders import FORMAT
 
 
 def get_parser():
